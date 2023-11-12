@@ -11,8 +11,10 @@ const ProductContainer = () => {
     const fetchProductsApi = async () => {
      try {
             setLoadign(true)
-            const { data } = await getProductApi();
-            if (data) setProducts(data)
+            const {data} = await getProductApi();
+            if (data) {
+              setProducts(data)
+            }
             else throw Error('there is no data')
         }catch(err){
             setError(err)
@@ -32,9 +34,9 @@ useEffect( ()=>{
            <SectionTitle title='Our Products'/>
 
            <div style={{display:'flex',justifyContent:'space-between',flexWrap:'wrap'}}>
-
            {prodcuts?.map((product) => (
              <div className="m-2 rounded-2" key={product._id}>
+
                <SingleProduct
                  productType={product?.product_type}
                  productPrice={product?.product_price}
