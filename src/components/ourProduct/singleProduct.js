@@ -4,15 +4,13 @@ import { addProduct } from "../../redux/reducer/productReducer";
 const SingleProduct = ({  productPrice, productName,productImage }) => {
 
     const dispatch = useDispatch();
-    const product = useSelector((state) => state.product);
 
 
     const addProductToBasket = ()=>{
-        dispatch(addProduct({id:'safi'}))
+        dispatch(addProduct({productPrice,productImage,productName}))
     }
     return (
         <>
-{console.log(product)}
         <div className="card m-5  border-0  rounded-0 bg-.bg-secondary shadow" style={{ width: '340px'}} >
             <div className="mt-4">
             <div  style={{width:'280px',height:'140px',background:'#f6f6f6',position:'relative',margin:'16px auto'}}>
