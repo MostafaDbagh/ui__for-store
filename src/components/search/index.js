@@ -1,20 +1,16 @@
 
 export const Search = () => {
 
-    const handleChange = (e) => {
-        const { value } = e.target;
-        // setSearch(value);
-        // setcounter(counter + 1);
-    }
-    return (
-        <div className=" row w-50 ">
-            <div className=" col0-md-8 m-auto p-5 bg-light border border-dark rounded" >
 
-        <form className="d-flex justify-content-around">
-            <div className="w-75 " >
-                <input type="text" className="form-control" id="inputSearch" placeholder="Enter Symbol..." onChange={(e) => handleChange(e)} />
+    return (
+        <div className="row d-flex"  style={{width:"99%",margin:"0 auto",background:'#212529',borderRadius:'10px',}}>
+            <div className="w-25 text-white d-flex justify-content-center align-items-center" style={{fontFamily:'oswald'}} >Toma Botique</div>
+            <div className="w-75"  style={{padding:'32px'}}>
+        <form className="flex-row-reverse d-flex">
+            <div style={{fontFamily:'lato'}} >
+                <input type="text" className="form-control" style={{minWidth:'270px',minHeight:'50px',}} id="inputSearch" placeholder="Enter Symbol..." onChange={()=>{}} />
             </div>
-            <button type="submit" class="btn btn-dark w-25 mx-2 ">Search</button>
+            <button type="submit" className="btn btn-dark mx-2" style={{width:'120px',background:"#27c8a3",fontFamily:'lato'}}>Search</button>
         </form>
         </div>
         </div>

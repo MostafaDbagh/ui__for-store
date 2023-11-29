@@ -1,18 +1,11 @@
 import './App.css';
-import Layout from './components/layout';
-import ProductContainer from './components/ourProduct/porductContainer';
-
+import { PageRoutes } from './routes';
 function App() {
 
 
   return (
     <div className="App">
-      <Layout> 
-       {/* <Background/>
-      <Silder /> */}
-      <ProductContainer/>
-      {/* <SellingForm/> */}
-      </Layout>
+   <PageRoutes/>
     </div>
   );
 }

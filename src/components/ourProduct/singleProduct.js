@@ -1,13 +1,15 @@
 import { useDispatch,useSelector } from "react-redux";
 import { addProduct } from "../../redux/reducer/productReducer";
-
-const SingleProduct = ({  productPrice, productName,productImage }) => {
+import { useNavigate } from "react-router-dom";
+const SingleProduct = ({  productPrice, productName,productImage, }) => {
 
     const dispatch = useDispatch();
-
+    const navigate = useNavigate()
 
     const addProductToBasket = ()=>{
         dispatch(addProduct({productPrice,productImage,productName}))
+        navigate('/product/1')
+
     }
     return (
         <>

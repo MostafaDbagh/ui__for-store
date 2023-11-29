@@ -11,25 +11,22 @@ function Header({setShowPorductsModal}) {
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" style={{height:'90px',width:'99%',margin:'4px auto',borderRadius:'10px',
     backgroundColor: "#5b6467",
-    backgroundImage: "linear-gradient(315deg, #5b6467 0%, #8b939a 74%)"}} >
+    backgroundImage: "linear-gradient(315deg, #5b6467 0%, #8b939a 74%)",
+    fontFamily:'oswald,',
+    
+    
+    }} >
       <Container>
-        <Navbar.Brand href="#home">AdbAlsalam</Navbar.Brand>
+        <Navbar.Brand href="#home"></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Cakes</Nav.Link>
-            <Nav.Link href="#pricing">Manakish</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+          <Nav className="me-auto" style={{fontSize:'18px'}}>
+            <Nav.Link href="#features" className='px-4'>Home</Nav.Link>
+            <Nav.Link href="#pricing" className='px-4'>clothes</Nav.Link>
+            <Nav.Link href="#pricing" className='px-4'>Toys</Nav.Link>
+            <Nav.Link href="#pricing"className='px-4'>Feeding</Nav.Link>
+            <Nav.Link href="#pricing" className='px-4'>SkinCare</Nav.Link>
+       
           </Nav>
           <Nav>
             <Nav.Link href="#deets">Contact Us</Nav.Link>
