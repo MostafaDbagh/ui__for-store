@@ -2,8 +2,9 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-const MyModal = ({ showProductsModal, setShowPorductsModal:handleClose }) => {
+import Delete from '../../assests/images/delete.png'
 
+const MyModal = ({ showProductsModal, setShowPorductsModal:handleClose }) => {
     const product = useSelector(state => state.product)
   return (
     <Modal show={showProductsModal} onHide={handleClose}>
@@ -24,6 +25,9 @@ const MyModal = ({ showProductsModal, setShowPorductsModal:handleClose }) => {
             </div>
             <p className='my-0 mx-3'>{product.productName}</p>
             <p className='my-0 mx-3'>{product.productPrice}</p>
+            <p className='m-0 ' >
+              <img src={Delete} alt='toma-boutique' width={40} height={40}/>
+            </p>
     </div>
 ))}
       </Modal.Body>

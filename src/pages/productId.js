@@ -3,14 +3,14 @@ import { getProductById } from "../api/productApi";
 import heart from '../assests/images/heart.svg'
 import basket from '../assests/images/whiteBasket.svg'
 import eye from '../assests/images/eye-svgrepo-com.svg'
-
+import Imagecarousel from "../components/slidder/imagecarousel";
 import "./style.css";
 
 export const ProductId = () => {
   const [currentProduct, setCurrentProduct] = useState({});
 
   const fetchProductById = async () => {
-    const productById = await getProductById("15");
+    const productById = await getProductById("1");
     const data = productById.data;
     setCurrentProduct({ ...data });
   };
@@ -93,6 +93,8 @@ export const ProductId = () => {
           </div>
         </div>
       </div>
+
+    <  Imagecarousel   /> 
     </div>
   );
 };

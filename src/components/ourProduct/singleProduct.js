@@ -1,4 +1,4 @@
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/reducer/productReducer";
 import { useNavigate } from "react-router-dom";
 const SingleProduct = ({  productPrice, productName,productImage, }) => {

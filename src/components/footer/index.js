@@ -58,7 +58,7 @@ const Footer = () => {
       </div>
     </div>
   
-        <div style={{width:'98%',height:'50px',textAlign:'center',background:'#000',margin:'12px 0 0 0',color:'white',lineHeight:'50px',margin:'0 auto 8px',borderRadius:'24px'}}>
+        <div style={{width:'98%',height:'50px',textAlign:'center',background:'#000',color:'white',lineHeight:'50px',margin:'0 auto 8px',borderRadius:'24px'}}>
            <p> All Right reserved  Design by <span style={{color:'rgb(39, 200, 163)'}}>Mostafa Dbagh</span></p>
         </div>
         </>
