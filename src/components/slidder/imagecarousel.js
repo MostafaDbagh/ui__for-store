@@ -8,13 +8,13 @@ const Imagecarousel = () => {
     const btnpressprev = () => {
         let width = box.clientWidth;
         box.scrollLeft = box.scrollLeft - width;
-        console.log(width)
+
     }
 
     const btnpressnext = () => {
         let width = box.clientWidth;
         box.scrollLeft = box.scrollLeft + width;
-        console.log(width)
+    
     }
     return (
         <div className='mt-5'>

@@ -42,6 +42,7 @@ useEffect( ()=>{
                  productPrice={product?.product_price}
                  productName={product?.product_name}
                  productImage={product?.product_image}
+                 productId={product?.product_id}
                />
              </div>
            ))}

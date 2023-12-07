@@ -7,6 +7,10 @@ import { useSelector } from 'react-redux';
 
 function Header({setShowPorductsModal}) {
   const product = useSelector((state) => state.product);
+
+  const productNuber =  () =>{
+    return product.reduce((acc,curr) => acc + curr.quantity,0)
+  }
   return (
     <Navbar collapseOnSelect expand="lg" variant="dark" style={{height:'90px',width:'99%',margin:'4px auto',borderRadius:'10px',
     backgroundColor: "#5b6467",
@@ -15,6 +19,7 @@ function Header({setShowPorductsModal}) {
     
     
     }} >
+      
       <Container>
         <Navbar.Brand href="#home"></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -34,7 +39,7 @@ function Header({setShowPorductsModal}) {
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes" style={{position:'relative'}} onClick={()=>setShowPorductsModal(true)}>
          <img src={basket} alt='ecomerce-website' width={30} height={30}  />
-         <span style={{position:'absolute',width:"24px",height:'24px',background:'#27C8A3',borderRadius:'50%',textAlign:'center',top:'-5px',color:'white'}}> {product.length}</span>
+         <span style={{position:'absolute',width:"24px",height:'24px',background:'#27C8A3',borderRadius:'50%',textAlign:'center',top:'-5px',color:'white'}}> {productNuber()}</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

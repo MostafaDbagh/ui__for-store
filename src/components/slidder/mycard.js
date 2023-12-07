@@ -1,6 +1,6 @@
 import React from 'react'
 import './mycard.css'
-const Mycard = (props) => {
+const Mycard = () => {
     return (
 <div className='mycard'>
 <div style={{width:'96%',height:'200px',background:'#3e3e3e',borderRadius:'24px',margin:'0 auto'}}>

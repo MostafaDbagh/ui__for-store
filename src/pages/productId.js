@@ -1,16 +1,30 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 import { getProductById } from "../api/productApi";
 import heart from '../assests/images/heart.svg'
 import basket from '../assests/images/whiteBasket.svg'
 import eye from '../assests/images/eye-svgrepo-com.svg'
 import Imagecarousel from "../components/slidder/imagecarousel";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct } from "../redux/reducer/productReducer";
 import "./style.css";
 
-export const ProductId = () => {
-  const [currentProduct, setCurrentProduct] = useState({});
 
+
+
+export const ProductId = () => {
+  const {id} = useParams();
+
+  const dispatch = useDispatch()
+  const product  = useSelector(state =>state.product)
+
+  const [currentProduct, setCurrentProduct] = useState({});
+  const [quantity,setQuantity] = useState(1)
+  const [error,setError] =useState('')
+  
   const fetchProductById = async () => {
-    const productById = await getProductById("1");
+    const productById = await getProductById(id);
     const data = productById.data;
     setCurrentProduct({ ...data });
   };
@@ -18,6 +32,26 @@ export const ProductId = () => {
   useEffect(() => {
     fetchProductById();
   }, []);
+
+  const handleIncrement = () =>{
+    if(quantity > 6){
+      setError('you exceed order limit')
+      return
+    }
+    setQuantity(q =>q+1)
+  }
+  const handleDecrement = () =>{
+    if(quantity < 2 ){
+      setError('At least your order should be one')
+      return
+    }
+    setQuantity(q =>q-1)
+
+  }
+  const addProductToBasket = () =>{
+    const {product_price:productPrice,product_image:productImage,product_name:productName,product_id:id} = currentProduct;
+          dispatch(addProduct({productPrice,productImage,productName,id,quantity}))
+  }
   return (
     <div>
       <div className="d-flex justify-content-center align-items-center my-3">
@@ -42,7 +76,7 @@ export const ProductId = () => {
           <div className="d-flex align-items-center py-2 mb-3 mt-1"style={{fontFamily:'alto,sans-serif'}}>
             <p style={{ color: "#E10600" }} className="m-0">
               <span className="mx-1">Dhs.</span>
-              <s>213.00</s>{" "}
+              <s>{currentProduct.product_old_price}</s>{" "}
             </p>
             <p style={{ marginLeft: "8px" }} className="m-0">
               <span className="mx-1">Dhs.</span>
@@ -60,30 +94,33 @@ export const ProductId = () => {
               Quantity:
             </label>
             <div style={{fontFamily:'oswald,sans-serif'}}>
+
               <button
                 className="spin"
                 style={{ background: "#E95144", marginLeft: "0" }}
+                onClick={()=>handleDecrement()}
               >
                 -
               </button>
+
               <input
                 type="number"
                 id="quantity"
                 name="quantity"
                 class="modern-input"
-                value={0}
+                value={quantity}
                 style={{width:"60px"}}
               />
-              <button className="spin" style={{ background: "#27c8a3" }}>
+              <button className="spin" style={{ background: "#27c8a3" }} onClick={()=>handleIncrement()}>
                 +
               </button>
             </div>
           </div>
           <div className="mb-4" style={{fontFamily:'alto,sans-serif'}}>
-            <p>Subtotal Dhs:<span style={{fontFamily:'oswald,sans-serif',margin:"3px"}}>350</span></p>
+            <p>Subtotal Dhs:<span style={{fontFamily:'oswald,sans-serif',margin:"3px"}}>{currentProduct.product_price * quantity}</span></p>
           </div>
           <div className="my-2" style={{fontFamily:'alto,sans-serif'}}>
-            <button className="buyNow d-flex justify-content-center align-items-center ">Add To Cart <img src={basket} alt='toma-ecomerce' width={30} height={30} style={{marginLeft:'6px'}}/></button>
+            <button className="buyNow d-flex justify-content-center align-items-center " onClick={()=>addProductToBasket()}>Add To Cart <img src={basket} alt='toma-ecomerce' width={30} height={30} style={{marginLeft:'6px'}}/></button>
           </div>
           <div className="mb-3">
             <button className="buyNow" style={{background:'#27c8a3'}}>Buy it Now <img src={heart} alt='toma-ecomerce' width={30} height={30} style={{marginleft:'6px'}}/></button>

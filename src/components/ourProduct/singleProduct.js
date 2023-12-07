@@ -1,14 +1,12 @@
-import { useDispatch } from "react-redux";
-import { addProduct } from "../../redux/reducer/productReducer";
-import { useNavigate } from "react-router-dom";
-const SingleProduct = ({  productPrice, productName,productImage, }) => {
 
-    const dispatch = useDispatch();
+import { useNavigate } from "react-router-dom";
+const SingleProduct = ({  productPrice, productName,productImage,productId }) => {
+
+
     const navigate = useNavigate()
 
-    const addProductToBasket = ()=>{
-        dispatch(addProduct({productPrice,productImage,productName}))
-        navigate('/product/1')
+    const addProductToBasket = (id)=>{
+        navigate(`/product/${id}`)
 
     }
     return (
@@ -33,7 +31,7 @@ const SingleProduct = ({  productPrice, productName,productImage, }) => {
             <p className="mb-3  text-center " style={{ fontSize: '22px',color:'#27C8A3',fontFamily:'Oxygen, sans-serif' }}>${productPrice}</p>
         </div>
         <div className="d-flex  ">
-            <button className="btn btn-success border-0  rounded-0  w-100 text-white p-3" style={{background:'#27C8A3'}} onClick={()=>addProductToBasket()} >add To Cart</button>
+            <button className="btn btn-success border-0  rounded-0  w-100 text-white p-3" style={{background:'#27C8A3'}} onClick={()=>addProductToBasket(productId)} >add To Cart</button>
         </div>
             </div>
     
