@@ -9,7 +9,7 @@ import Imagecarousel from "../components/slidder/imagecarousel";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../redux/reducer/productReducer";
 import "./style.css";
-
+import LocationForm from "../components/forms/addLocationForm";
 
 
 
@@ -55,7 +55,7 @@ export const ProductId = () => {
   return (
     <div>
       <div className="d-flex justify-content-center align-items-center my-3">
-        <div style={{ width: "60%" }}>
+        <div style={{ width: "54%",margin:'0 auto' }}>
           <img
             src={`http://baby-bucket-product.s3.amazonaws.com/${currentProduct["product_image"]}`}
             alt="productImage"
@@ -65,6 +65,7 @@ export const ProductId = () => {
               margin: "0 auto",
               borderRadius: "24px",
               paddingRight: "32px",
+              
             }}
           />
         </div>
@@ -107,7 +108,7 @@ export const ProductId = () => {
                 type="number"
                 id="quantity"
                 name="quantity"
-                class="modern-input"
+                className="modern-input"
                 value={quantity}
                 style={{width:"60px"}}
               />
@@ -130,7 +131,6 @@ export const ProductId = () => {
           </div>
         </div>
       </div>
-
     <  Imagecarousel   /> 
     </div>
   );

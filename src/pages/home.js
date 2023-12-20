@@ -1,11 +1,14 @@
 
+import { useState } from "react";
 import ProductContainer from "../components/ourProduct/porductContainer";
+import Subscribe from "../components/subscribe";
 
-
-const Home = () => {
+const Home = ({search,setSearch}) => {
     return ( 
         <div>
-<ProductContainer/>
+<ProductContainer search={search}setSearch={setSearch}/>
+<Subscribe/>
+
         </div>
      );
 }

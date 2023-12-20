@@ -36,7 +36,7 @@ const MyModal = ({ showProductsModal, setShowPorductsModal:handleClose }) => {
         <Modal.Title>Picked Products</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-{productNuber() !== 0  &&product.map(product =>
+{productNuber() !== 0  && product.map(product =>
   {
     return(
       product.quantity > 0 &&

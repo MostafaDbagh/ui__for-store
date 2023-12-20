@@ -1,6 +1,6 @@
 
 
-input{
+.contactSupportInput{
     width: 340px;
     padding: 12px 12px;
     border-radius: 4px;
@@ -26,4 +26,13 @@ button{
     margin: 8px;
 
 
+}
+li{
+    list-style: none;
+
+}
+li:hover{
+    transform: scale(1.2);
+    transition: all .4s ease-in;
+    cursor: pointer;
 }

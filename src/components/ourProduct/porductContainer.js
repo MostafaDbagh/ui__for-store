@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { getProductApi } from '../../api/productApi'
+import { getProductApi,getProductBySearch } from '../../api/productApi'
 import SingleProduct from "./singleProduct";
 import SectionTitle from "../sectionTitle/sectionTitle";
-const ProductContainer = () => {
+const ProductContainer = ({search,setSearch}) => {
 
     const [prodcuts, setProducts] = useState([]);
     const [loading, setLoadign] = useState(false);
     const[error, setError] = useState('')
-
     const fetchProductsApi = async () => {
+      if(search.length > 0) return;
      try {
             setLoadign(true)
             const {data} = await getProductApi();
@@ -24,9 +24,30 @@ const ProductContainer = () => {
         }
 
 }
+const fetchProductsApiBySearch = async (q) => {
+ try {
+        setLoadign(true)
+        const {data} = await getProductBySearch(q);
+        if (data) {
+          setProducts(data)
+        }
+        else throw Error('there is no data')
+    }catch(err){
+        setError(err)
+    }
+    finally{
+        setLoadign(false)
+    }
+
+}
 useEffect( ()=>{
     fetchProductsApi()
-},[])
+    if (search.length >1 ){
+      fetchProductsApiBySearch(search)
+
+    }
+},[search])
+
     return (
         <>
         {loading ? <h3> loading...</h3>:(

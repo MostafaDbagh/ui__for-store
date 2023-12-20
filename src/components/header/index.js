@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import basket from '../../assests/images/basket.svg'
 import { useSelector } from 'react-redux';
-
+import './index.css'
 
 function Header({setShowPorductsModal}) {
   const product = useSelector((state) => state.product);
@@ -12,10 +12,11 @@ function Header({setShowPorductsModal}) {
     return product.reduce((acc,curr) => acc + curr.quantity,0)
   }
   return (
-    <Navbar collapseOnSelect expand="lg" variant="dark" style={{height:'90px',width:'99%',margin:'4px auto',borderRadius:'10px',
-    backgroundColor: "#5b6467",
-    backgroundImage: "linear-gradient(315deg, #5b6467 0%, #8b939a 74%)",
-    fontFamily:'oswald,',
+    <Navbar collapseOnSelect expand="lg" style={{height:'90px',width:'99%',margin:'4px auto',borderRadius:'10px',color:'white',
+  
+    background: " #f39fdc "
+
+   
     
     
     }} >
@@ -37,9 +38,9 @@ function Header({setShowPorductsModal}) {
             <Nav.Link eventKey={2} href="#memes">
               About Us
             </Nav.Link>
-            <Nav.Link eventKey={2} href="#memes" style={{position:'relative'}} onClick={()=>setShowPorductsModal(true)}>
+            <Nav.Link className='last-item' eventKey={2} href="#memes" style={{position:'relative'}} onClick={()=>setShowPorductsModal(true)}>
          <img src={basket} alt='ecomerce-website' width={30} height={30}  />
-         <span style={{position:'absolute',width:"24px",height:'24px',background:'#27C8A3',borderRadius:'50%',textAlign:'center',top:'-5px',color:'white'}}> {productNuber()}</span>
+         <span style={{position:'absolute',width:"24px",height:'24px',background:'#E80f88',borderRadius:'50%',textAlign:'center',top:'-5px',color:'white'}}> {productNuber()}</span>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
