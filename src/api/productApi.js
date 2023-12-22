@@ -30,7 +30,11 @@ export const getProductBySearch =  async(search)=>{
   return response.data;
 
 }
+export const getNextOrederId =  async(search)=>{
+  const response = await Axios.get(`orders/lastOrderId`);
+  return response.data;
 
+}
 export const updateProduct =  async(id,data)=>{
   const response = await Axios.put(`products/${id}`,data,{
     headers:{
@@ -42,6 +46,12 @@ export const updateProduct =  async(id,data)=>{
 
 export const getOrders =  async()=>{
   const response = await Axios.get(`orders`)
+  return response.data;
+
+}
+
+export const sendLocation =  async(data)=>{
+  const response = await Axios.post(`location/sendLocation`,data)
   return response.data;
 
 }

@@ -9,6 +9,7 @@ import { ProductForm } from "./pages/admin/addProduct";
 import ProductsAdmin from "./pages/admin/products";
 import Orders from './pages/admin/orders'
 import { useState } from "react";
+import Cart  from "./pages/cart";
 export const PageRoutes = () =>{
     const [search,setSearch] = useState('')
 return(
@@ -22,6 +23,8 @@ return(
    <Route path="/admin/products" element={<ProductsAdmin search={search}/>}/>
    <Route path="/admin/addProduct" element={<ProductForm/>}/>
    <Route path="/admin/orders" element={<Orders/>}/>
+   <Route path="/cart" element={<Cart/>}/>
+
 
 
     </Routes>

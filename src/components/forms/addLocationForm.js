@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import { sendLocation } from '../../api/productApi';
 import * as Yup from 'yup'
 
 const categoryOptions = [
@@ -17,30 +17,34 @@ const initialValues = {
   customer_location_email: '',
   customer_location_country: '',
   customer_location_city: '',
-  customer_location_region: '',
+  customer_location_district: '',
   customer_location_street_address: '',
-  customer_location_apartmentNumber: '',
+  location_id:'1'
+  
 };
 const validationSchema = Yup.object().shape({
-    location_id: Yup.number().required('Location ID is required'),
     customer_location_first_name: Yup.string().required('First Name is required'),
     customer_location_last_name: Yup.string().required('Last Name is required'),
     customer_location_phone: Yup.string().required('Phone is required'),
     customer_location_email: Yup.string().email('Invalid email').required('Email is required'),
     customer_location_country: Yup.string().required('Country is required'),
     customer_location_city: Yup.string().required('City is required'),
-    customer_location_region: Yup.string().required('Region is required'),
-    customer_location_street_address: Yup.string().required('Street Address is required'),
-    customer_location_apartmentNumber: Yup.string().required('Apartment Number is required'),
+    customer_location_district: Yup.string().required('district Address is required'),
+    customer_location_street_address: Yup.string().required('Apartment Number is required'),
   });
 
+  const handleSubmit = async(values, { setSubmitting }) => {
+     
+    const res  = await sendLocation(values);
 
+      }
+    
 const LocationForm = () => (
   <div className=' p-3  '  >
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={()=>console.log('safi')}
+      onSubmit={handleSubmit}
       enableReinitialize={true} 
     >
       {({ isSubmitting,setFieldValue }) => (
@@ -115,8 +119,8 @@ const LocationForm = () => (
 
 </div>
 
-          <button type="submit" disabled={false} className='btn btn-primary btn-lg w-50 m-3'>
-            Submit
+          <button type="submit"  className='btn btn-primary btn-lg w-50 m-3'>
+            Submit Your Location
           </button>
         </Form>
       )}
