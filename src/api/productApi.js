@@ -55,3 +55,9 @@ export const sendLocation =  async(data)=>{
   return response.data;
 
 }
+
+export const makeOrder =  async(data)=>{
+  const response = await Axios.post(`orders/makeOrder`,data)
+  return response.data;
+
+}

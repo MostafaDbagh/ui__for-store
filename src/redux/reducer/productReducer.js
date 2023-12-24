@@ -14,10 +14,11 @@ const ProductSlice = createSlice({
         );
         state[matchIndex].quantity += quantity;
       } else {
-        state.push({ rest, quantity });
+        state.push({ rest, quantity,totalAmount:quantity * rest.productPrice  });
       }
     },
     removeProduct: (state, action) => {
+      console.log(action.payload,'safi')
       const matchIndex = state.findIndex(
         (item) => item["rest"].id == action.payload['rest'].id
       );   
