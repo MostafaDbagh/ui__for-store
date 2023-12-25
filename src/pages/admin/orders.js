@@ -72,7 +72,7 @@ const correctedData =(data) =>{
 
 return (
     <>
-    <div className="container mt-4">
+     <div className="container mt-4">
       <table className="table table-bordered table-striped">
         <thead className="thead-dark">
           <tr className="text-center">
@@ -83,39 +83,38 @@ return (
           <th> Order Status</th>
           <th>order Paid Amount</th>
            <th>order Is Complete</th>
-            <th>_id</th>
+            <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
+         <tbody>
           {orders.map((order, index) => (
             <tr key={index}>
          {console.log(order.order_details,"order Details")}
 
             <td>{order.order_id}</td>
              <td style={{minWidth:'165px'}}>{order.order_date}</td>
-             <td style={{minWidth:'300px'}} >{order.order_details.map(item =><div><p className="mx-0 my-1" style={{fontSize:'16px', background:'#f39fdc',marginBottom:'8px',borderRadius:'12px',lineHeight:"40px",color:'#000',fontFamily:'lato'}}>{item.slice(1,-1)}</p></div>)}</td>
+             <td style={{minWidth:'300px'}} >{order.order_details.map(item =>
+             <div><p className="mx-0 my-1" style={{fontSize:'16px', background:'#f39fdc',marginBottom:'8px',borderRadius:'12px',lineHeight:"40px",color:'#000',fontFamily:'lato'}}>
+              { 'porduct_id :'+item.rest.id  +" product_Name :"+    item.rest.productName + ' Quantity :'+item.quantity + ' Total :'+item.totalAmount}
+              </p>
+              </div>)}
+              </td>
              <td>{order.order_totalAmount}</td>
               <td style={{minWidth:'200px'}}>{order.order_status}</td>
               <td>{order.order_paidAmount}</td>
               <td>{order.order_isCompleted +""}</td>
 
-              <td>{order._id}</td>
+              <td>{"update Order"}</td>
 
 
 
            
             </tr>
           ))}
-        </tbody>
+        </tbody> 
       </table>
-    </div>
-    {/* { !!productId && 
-    <>
-   <ViewProductModal showProductsModal={showViewProductModal} productId={productId} setShowPorductsModal={setShowViewProductModal}/>
-   <DeleteProductModal productName={productName} showProductsModal={showDeleteProductModal} productId={productId} setShowPorductsModal={setShowDeleteProductModal}/>
-   <UpdateProductModal  showProductsModal={showUpdateProductModal} productId={productId} setShowPorductsModal={setShowUpdateProductModal}/>
-</>
-    } */}
+    </div> 
+
  
     </>
   );

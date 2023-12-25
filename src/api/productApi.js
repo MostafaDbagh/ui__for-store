@@ -61,3 +61,8 @@ export const makeOrder =  async(data)=>{
   return response.data;
 
 }
+
+export const getLocations = async (data) =>{
+  const response = await Axios.get('location/locations')
+  return response.data
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import Delete from '../../assests/images/delete.png'
-import {removeProduct} from '../../redux/reducer/productReducer'
+import {reduceProduct} from '../../redux/reducer/productReducer'
 import { useDispatch } from 'react-redux';
 import { ToastContainer,toast } from 'react-toastify';
 const MyModal = ({ showProductsModal, setShowPorductsModal:handleClose }) => {
@@ -14,7 +14,7 @@ const MyModal = ({ showProductsModal, setShowPorductsModal:handleClose }) => {
     }
     
     const reduceProductNumber = (product) =>{
-      dispatch(removeProduct(product))
+      dispatch(reduceProduct(product))
       toast.error('🦄 Wow so easy!', {
         position: "bottom-right",
         autoClose: 5000,
